@@ -11,18 +11,11 @@ import java.util.*
  *
  * @author JosherLo
  */
-class Maze {
-    private var n = 0
-    private var m = 0
+class Maze(private var n: Int, private var m: Int) {
 
     private val walls: MutableList<Int> = ArrayList()
     private val squares = HashMap<Int, MutableList<Int>>()
     private val squaresOriginal = HashMap<Int, MutableList<Int>>()
-
-    fun Maze(n: Int, m: Int) {
-        this.n = n
-        this.m = m
-    }
 
     fun getWallPosition(): List<Int> {
         initSquares()
