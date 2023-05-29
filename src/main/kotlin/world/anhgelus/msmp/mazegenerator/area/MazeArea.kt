@@ -15,8 +15,8 @@ class MazeArea(val corners: Mth.Matrix<SimpleLocation>) {
         }
         val leftTop = corners[1,1]
         val rightBottom = corners[2,2]
-        n = kotlin.math.abs(leftTop.x - rightBottom.x)
-        m = kotlin.math.abs(leftTop.z - rightBottom.z)
+        n = kotlin.math.abs(leftTop.x) + kotlin.math.abs(rightBottom.x)
+        m = kotlin.math.abs(leftTop.z) + kotlin.math.abs(rightBottom.z)
     }
 
     constructor(corners: Mth.Matrix<SimpleLocation>, center: SimpleLocation) : this(corners) {

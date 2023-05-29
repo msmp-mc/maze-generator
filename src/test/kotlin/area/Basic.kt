@@ -36,10 +36,10 @@ class Basic {
         Assertions.assertEquals(400, mazeArea.getSurface())
         Assertions.assertEquals(20, mazeArea.n)
         Assertions.assertEquals(20, mazeArea.m)
-        Assertions.assertEquals(7,excluded[1].n)
-        Assertions.assertEquals(6,excluded[1].m)
-        Assertions.assertEquals(4,excluded[2].n)
-        Assertions.assertEquals(6, excluded[2].m)
+        Assertions.assertEquals(7,excluded[0].n)
+        Assertions.assertEquals(6,excluded[0].m)
+        Assertions.assertEquals(4,excluded[1].n)
+        Assertions.assertEquals(6, excluded[1].m)
     }
 
     @Test
