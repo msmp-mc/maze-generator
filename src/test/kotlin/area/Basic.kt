@@ -46,7 +46,7 @@ class Basic {
     fun `Simplify test`() {
         val areas = mazeArea.getExcludedArea()
         Assertions.assertEquals(1, areas.size)
-        Assertions.assertEquals(excluded[1], areas[0])
+        Assertions.assertEquals(excluded[0], areas[0])
     }
 
 }
