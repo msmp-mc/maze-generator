@@ -35,5 +35,26 @@ object Mth {
             matrix[2,1] = j
             return matrix
         }
+
+        /**
+         * Get the id from a value
+         * @return the id or -1 if the value is not in the matrix
+         */
+        fun getIdFromValue(v: T): Int {
+            for (i in 0 until contents.size) {
+                if (v==contents[i]) return i
+            }
+            return -1
+        }
+
+        /**
+         * Get I and J from a value
+         * @return the IJ or null if the value is not in the matrix
+         */
+        fun getIJFromValue(v: T): Matrix<Int>? {
+            val id = getIdFromValue(v)
+            if (id == -1) return null
+            return calcIJ(id)
+        }
     }
 }
