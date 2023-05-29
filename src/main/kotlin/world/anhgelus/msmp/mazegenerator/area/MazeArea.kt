@@ -90,12 +90,12 @@ class MazeArea(val corners: Mth.Matrix<SimpleLocation>) {
                     val corners = Mth.Matrix<SimpleLocation>(2,2)
                     var x = 0
                     var z = 0
-                    val j = c1coords[2,1]
+                    val j = c1coords[1,2]
                     val i = c1coords[1,1]
                     // handle every position of the first corner
                     if (c1.x == c2.x) {
                         // we must move the x
-                        x = if (c1coords[2,1] == 1) {
+                        x = if (j == 1) {
                             // c1 is left
                             c1.x - big.corners[i,2].x
                         } else {
@@ -106,7 +106,7 @@ class MazeArea(val corners: Mth.Matrix<SimpleLocation>) {
                         mut2.x = x
                     } else {
                         // we must move the z
-                        z = if (c1coords[1,1] == 1) {
+                        z = if (i == 1) {
                             // c1 is top
                             c1.z - big.corners[2,j].z
                         } else {
@@ -118,9 +118,9 @@ class MazeArea(val corners: Mth.Matrix<SimpleLocation>) {
                     }
 
                     corners[i,j] = mut1.toSimpleLocation()
-                    corners[c2coords[1,1],c2coords[2,1]] = mut2.toSimpleLocation()
-                    corners[c3coords[1,1],c3coords[2,1]] = c3
-                    corners[c4coords[1,1],c4coords[2,1]] = c4
+                    corners[c2coords[1,1],c2coords[1,2]] = mut2.toSimpleLocation()
+                    corners[c3coords[1,1],c3coords[1,2]] = c3
+                    corners[c4coords[1,1],c4coords[1,2]] = c4
                     excluded.add(MazeArea(corners))
                 }
             }
