@@ -8,22 +8,22 @@ class Math {
         val matrix = Mth.Matrix<Int>(2,2)
         matrix.setContents(mutableListOf(1,4,8,2))
 
-        Assertions.assertEquals(matrix[1,1], 1)
-        Assertions.assertEquals(matrix[1,2], 4)
-        Assertions.assertEquals(matrix[2,1], 8)
-        Assertions.assertEquals(matrix[2,2], 2)
+        Assertions.assertEquals(1, matrix[1,1])
+        Assertions.assertEquals(4, matrix[1,2])
+        Assertions.assertEquals(8,matrix[2,1])
+        Assertions.assertEquals(2, matrix[2,2])
 
-        Assertions.assertEquals(matrix.calcIndex(1,1), 0)
-        Assertions.assertEquals(matrix.calcIndex(1,2), 1)
-        Assertions.assertEquals(matrix.calcIndex(2,1), 2)
-        Assertions.assertEquals(matrix.calcIndex(2,2), 3)
+        Assertions.assertEquals(0,matrix.calcIndex(1,1))
+        Assertions.assertEquals(1, matrix.calcIndex(1,2))
+        Assertions.assertEquals(2, matrix.calcIndex(2,1))
+        Assertions.assertEquals(3, matrix.calcIndex(2,2))
 
-        Assertions.assertEquals(matrix.getIdFromValue(8),2)
+        Assertions.assertEquals(2,matrix.getIdFromValue(8))
 
         val ij = Mth.Matrix<Int>(2,1)
         ij.setContents(mutableListOf(2,1))
         val got = matrix.getIJFromValue(8)!!
-        Assertions.assertEquals(got[1,1], ij[1,1])
-        Assertions.assertEquals(got[2,1], ij[2,1])
+        Assertions.assertEquals(ij[1,1], got[1,1])
+        Assertions.assertEquals(ij[1,2], got[1,2])
     }
 }

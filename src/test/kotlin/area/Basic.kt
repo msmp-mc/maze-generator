@@ -1,7 +1,6 @@
 package area
 
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import world.anhgelus.msmp.mazegenerator.area.MazeArea
@@ -34,20 +33,20 @@ class Basic {
 
     @Test
     fun `Basic property test`() {
-        Assertions.assertEquals(mazeArea.getSurface(), 400)
-        Assertions.assertEquals(mazeArea.n, 20)
-        Assertions.assertEquals(mazeArea.m, 20)
-        Assertions.assertEquals(excluded[1].n, 7)
-        Assertions.assertEquals(excluded[1].m, 6)
-        Assertions.assertEquals(excluded[2].n, 4)
-        Assertions.assertEquals(excluded[2].m, 6)
+        Assertions.assertEquals(400, mazeArea.getSurface())
+        Assertions.assertEquals(20, mazeArea.n)
+        Assertions.assertEquals(20, mazeArea.m)
+        Assertions.assertEquals(7,excluded[1].n)
+        Assertions.assertEquals(6,excluded[1].m)
+        Assertions.assertEquals(4,excluded[2].n)
+        Assertions.assertEquals(6, excluded[2].m)
     }
 
     @Test
     fun `Simplify test`() {
         val areas = mazeArea.getExcludedArea()
-        Assertions.assertEquals(areas.size, 1)
-        Assertions.assertEquals(areas[0], excluded[1])
+        Assertions.assertEquals(1, areas.size)
+        Assertions.assertEquals(excluded[1], areas[0])
     }
 
 }
