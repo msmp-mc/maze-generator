@@ -6,19 +6,26 @@ object Mth {
     }
 
     class Matrix<T>(val n: Int, val m: Int) {
-        private val contents = mutableListOf<T>()
+        private var contents = mutableListOf<T>()
+
         operator fun set(i: Int, j: Int, v: T) {
-            contents[calcIndex(i,j)] = v
+            contents.add(calcIndex(i,j), v)
         }
         operator fun get(i: Int, j: Int): T {
             return contents[calcIndex(i,j)]
         }
 
         fun calcIndex(i: Int, j: Int): Int {
-            return n*(j-1)+i
+            return n*(i-1)+j-1
         }
         fun getContents(): MutableList<T> {
             return contents
+        }
+        fun setContents(l: MutableList<T>) {
+            if (l.size > m*n) {
+                throw IllegalArgumentException("The list is too big for the matrix")
+            }
+            contents = l
         }
 
         /**
@@ -41,6 +48,7 @@ object Mth {
          * @return the id or -1 if the value is not in the matrix
          */
         fun getIdFromValue(v: T): Int {
+            if (!contents.contains(v)) return -1
             for (i in 0 until contents.size) {
                 if (v==contents[i]) return i
             }

@@ -9,9 +9,9 @@ class MazeGenerator(val n: Int,val m: Int) {
         private set
 
     fun generate() {
-        val maze = Maze(n,m)
-        maze.setPatterns(patterns)
-        walls = maze.getWallPosition()
+        //val maze = Maze(n,m)
+        //maze.setPatterns(patterns)
+        //walls = maze.getWallPosition()
     }
     fun setPatterns(p: MazePatterns) {
         if (!p.isDataValid()) throw IllegalArgumentException("The maze patterns is not valid")

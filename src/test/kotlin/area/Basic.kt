@@ -15,22 +15,16 @@ class Basic {
     @BeforeEach
     fun init() {
         val corners = Mth.Matrix<SimpleLocation>(2,2)
-        corners[1,1] = SimpleLocation(-10,10)
-        corners[1,2] = SimpleLocation(10,10)
-        corners[2,1] = SimpleLocation(-10,-10)
-        corners[2,2] = SimpleLocation(10,-10)
+        corners.setContents(mutableListOf(SimpleLocation(-10,10), SimpleLocation(10,10),
+            SimpleLocation(-10,-10), SimpleLocation(10,-10)))
         mazeArea = MazeArea(corners)
 
-        corners[1,1] = SimpleLocation(-5,3)
-        corners[1,2] = SimpleLocation(2,3)
-        corners[2,1] = SimpleLocation(-5,-3)
-        corners[2,2] = SimpleLocation(2,-3)
+        corners.setContents(mutableListOf(SimpleLocation(-5,3), SimpleLocation(2,3),
+            SimpleLocation(-5,-3), SimpleLocation(2,-3)))
         val excluded1 = MazeArea(corners)
 
-        corners[1,1] = SimpleLocation(-2,3)
-        corners[1,2] = SimpleLocation(2,3)
-        corners[2,1] = SimpleLocation(-2,-3)
-        corners[2,2] = SimpleLocation(2,-3)
+        corners.setContents(mutableListOf(SimpleLocation(-2,3),SimpleLocation(2,3),
+            SimpleLocation(-2,-3), SimpleLocation(2,-3)))
         val excluded2 = MazeArea(corners)
 
         excluded = listOf(excluded1, excluded2)
