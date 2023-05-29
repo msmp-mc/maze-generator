@@ -15,7 +15,25 @@ object Mth {
         }
 
         fun calcIndex(i: Int, j: Int): Int {
-            return n*j+i
+            return n*(j-1)+i
+        }
+        fun getContents(): MutableList<T> {
+            return contents
+        }
+
+        /**
+         * Calc I and J from the id
+         */
+        fun calcIJ(id: Int): Matrix<Int> {
+            val matrix = Matrix<Int>(2,1)
+            /*
+             * id = (j-1)n+i <=> 0 = (j-1)n+i-id <=> -i = (j-1)n-id = <=> i = id-(j-1)n
+             */
+            val j = ((id-id%m)/m)+1
+            val i = id-(j-1)*m
+            matrix[1,1] = i
+            matrix[2,1] = j
+            return matrix
         }
     }
 }
