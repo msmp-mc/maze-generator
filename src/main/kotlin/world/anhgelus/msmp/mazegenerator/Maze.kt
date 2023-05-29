@@ -1,5 +1,7 @@
 package world.anhgelus.msmp.mazegenerator
 
+import world.anhgelus.msmp.mazegenerator.area.MazeArea
+import world.anhgelus.msmp.mazegenerator.area.MazePatterns
 import java.util.*
 
 /**
@@ -9,13 +11,15 @@ import java.util.*
  *
  * Distributed under no license
  *
- * @author JosherLo
+ * @author JosherLo and MSMP (Anhgelus Morhtuuzh)
  */
-class Maze(private var n: Int, private var m: Int) {
+class Maze(val patterns: MazePatterns, val area: MazeArea) {
 
     private val walls: MutableList<Int> = ArrayList()
     private val squares = HashMap<Int, MutableList<Int>>()
     private val squaresOriginal = HashMap<Int, MutableList<Int>>()
+    private val n: Int = area.n
+    private val m: Int = area.m
 
     fun getWallPosition(): List<Int> {
         initSquares()
