@@ -33,13 +33,9 @@ object Mth {
          */
         fun calcIJ(id: Int): Matrix<Int> {
             val matrix = Matrix<Int>(2,1)
-            /*
-             * id = (j-1)n+i <=> 0 = (j-1)n+i-id <=> -i = (j-1)n-id = <=> i = id-(j-1)n
-             */
-            val j = ((id-id%m)/m)+1
-            val i = id-(j-1)*m
-            matrix[1,1] = i
-            matrix[2,1] = j
+            val i = ((id-id%m)/m)+1
+            val j = id-(i-1)*m+1
+            matrix.setContents(mutableListOf(i,j))
             return matrix
         }
 
